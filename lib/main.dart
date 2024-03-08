@@ -114,7 +114,7 @@ List<String> title = ['Televisión en vivo', 'Radio', 'Noticias en linea',];
 
  Widget _buildCard({required String imageSrc, required String title}) {
     return Card(
-      color: Colors.white,
+      color: Colors.black,
       child: Column(
         children: [
           Image.network(
@@ -201,6 +201,7 @@ Widget card2(String thumbnailUrl, String title, BuildContext context) {
               title,
               style: const TextStyle(
                 fontSize: 19,
+                color: Colors.white,
               ),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,

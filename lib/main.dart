@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white12),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -66,10 +66,9 @@ class _MyHomePageState extends State<MyHomePage> {
   'https://static.vecteezy.com/system/resources/previews/014/802/054/large_2x/live-streaming-icon-live-buttons-transparent-broadcasting-signs-concept-free-png.png',
   'https://cdn.pixabay.com/photo/2017/10/20/10/58/elephant-2870777_960_720.jpg',
   'https://cdn.pixabay.com/photo/2014/09/08/17/32/humming-bird-439364_960_720.jpg',
-  'https://cdn.pixabay.com/photo/2018/05/03/22/34/lion-3372720_960_720.jpg'
 ];
 
-List<String> title = ['Sparrow', 'Elephant', 'Humming Bird', 'Lion'];
+List<String> title = ['Televisión en vivo', 'Radio', 'Noticias en linea',];
 
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
@@ -79,7 +78,8 @@ List<String> title = ['Sparrow', 'Elephant', 'Humming Bird', 'Lion'];
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: Colors.white,
+        elevation: 0.0,
         title: const Row( 
          mainAxisAlignment: MainAxisAlignment.center,
           children: [ 
@@ -114,7 +114,7 @@ List<String> title = ['Sparrow', 'Elephant', 'Humming Bird', 'Lion'];
 
  Widget _buildCard({required String imageSrc, required String title}) {
     return Card(
-      color: Colors.cyan[200],
+      color: Colors.white,
       child: Column(
         children: [
           Image.network(

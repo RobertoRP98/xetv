@@ -12,7 +12,7 @@ class _newsState extends State<news> {
 
   final controller=WebViewController()
   ..setJavaScriptMode(JavaScriptMode.unrestricted)
-  ..loadRequest(Uri.parse('https://www.xevt.com/'));
+  ..loadRequest(Uri.parse('https://www.grupovx.com/'));
   
   
   @override

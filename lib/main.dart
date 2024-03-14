@@ -58,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<String> links = ['/streaming', '/radio', '/news' ];
 
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,

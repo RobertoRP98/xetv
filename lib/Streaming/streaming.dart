@@ -13,12 +13,21 @@ class _streamingState extends State<streaming> {
   @override
   void initState(){
     super.initState();
-    flickManager = FlickManager(videoPlayerController: VideoPlayerController.networkUrl(Uri.parse("https://stream.golsystems.com.mx/memfs/8f81bb3e-b67a-42ca-a738-c7acc99fbb1c_output_0.m3u8")));
+    flickManager = FlickManager
+    (videoPlayerController: VideoPlayerController.networkUrl
+    (Uri.parse("https://stream-xevt.golsystems.com.mx/memfs/da936730-7d43-4c67-9701-6142b2766985.m3u8")));
   }
   @override
   
+   @override
+  void dispose() {
+    super.dispose();
+    flickManager.dispose(); // Detener la reproducción y liberar recursos
+  }
+  
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar( 
         title: const Text('Transmisión en vivo'),
       ),

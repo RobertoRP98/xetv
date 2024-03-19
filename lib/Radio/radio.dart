@@ -1,26 +1,19 @@
-
 import "package:audioplayers/audioplayers.dart";
 import "package:flutter/material.dart";
 import "package:xetv/Radio/gradient.dart";
-
 class radio extends StatefulWidget {
   const radio({super.key});
-
   @override
   State<radio> createState() => _radioState();
 }
-
 class _radioState extends State<radio> {
-    AudioPlayer audioPlayer = new AudioPlayer();
+    AudioPlayer audioPlayer = AudioPlayer();
     bool playing = false;
-
      @override
   void initState() {
     super.initState();
     audioPlayer = AudioPlayer();
   }
-
- 
 
   void playAudio()async{
     var url = 'https://radio.golsystems.com.mx/8202/stream';
@@ -30,7 +23,8 @@ class _radioState extends State<radio> {
           playing=false;
         });
     }else{
-      var res = await audioPlayer.play(UrlSource(url));
+      await audioPlayer.play(UrlSource(url),
+    ); 
         setState(() {
           playing = true;
         });
@@ -78,7 +72,5 @@ class _radioState extends State<radio> {
       ) ,
     );
   }
-
-
 }
 

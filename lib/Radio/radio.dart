@@ -13,7 +13,30 @@ class radio extends StatefulWidget {
 class _radioState extends State<radio> {
     AudioPlayer audioPlayer = new AudioPlayer();
     bool playing = false;
-  @override
+
+     @override
+  void initState() {
+    super.initState();
+    audioPlayer = AudioPlayer();
+  }
+
+ 
+
+  void playAudio()async{
+    var url = 'https://radio.golsystems.com.mx/8202/stream';
+    if(playing){
+      await audioPlayer.pause();
+        setState(() {
+          playing=false;
+        });
+    }else{
+      var res = await audioPlayer.play(UrlSource(url));
+        setState(() {
+          playing = true;
+        });
+    }
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar( 
@@ -21,17 +44,32 @@ class _radioState extends State<radio> {
       ),
       body: gradient( 
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(30),
           child: Column( 
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Image(image: AssetImage('logo.png'),),
-
+           const Image(image: AssetImage('images/logo.png')),
               InkWell( 
+                 onTap: () {
+                  if (playing) {
+                    audioPlayer.pause();
+                    setState(() {
+                      playing = false;
+                    });
+                  } else {
+                    playAudio();
+                    setState(() {
+                      playing = true;
+                    });
+                  }
+                },
                 child: Icon( 
                   playing == false
                   ? Icons.play_circle_fill_outlined
-                  : Icons.pause_circle_outline
+                  : Icons.pause_circle_outline,
+                  size: 100,
+                  color: Colors.yellowAccent,
+
                 ),
               ),
             ],
@@ -40,4 +78,7 @@ class _radioState extends State<radio> {
       ) ,
     );
   }
+
+
 }
+

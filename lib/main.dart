@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         '/': (context) => const MyHomePage(title: 'Seleccione un servicio'),
@@ -50,24 +50,28 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
   List<String> image = [
-  'https://cdn.pixabay.com/photo/2021/06/26/18/11/live-6366830_960_720.png',
-  'https://w7.pngwing.com/pngs/411/470/png-transparent-red-headphones-mike-music-radio-logo-music-radio-music-radio-station.png',
-  'https://w7.pngwing.com/pngs/982/544/png-transparent-news-graphy-logo-icon-news-logo-text-photography-computer-wallpaper.png',
+    'images/streaming.png',
+    'images/radio.png',
+    'images/news.png',
 ];
   List<String> title = ['Televisión en vivo', 'Radio', 'Noticias en linea',];
   List<String> links = ['/streaming', '/radio', '/news' ];
 
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         elevation: 0.0,
         title: const Row( 
          mainAxisAlignment: MainAxisAlignment.center,
           children: [ 
-            Icon(Icons.live_tv),
+            Icon(Icons.live_tv , color: Colors.white,),
             SizedBox(width: 10),
-            Text('Seleccione un servicio'),
+            Text('Seleccione un servicio',
+              style: TextStyle(
+                color: Colors.white
+                ),
+            ),
           ],
         ),
       ),
@@ -93,14 +97,14 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-Widget card2(String thumbnailUrl, String title, BuildContext context) {
+Widget card2(String assetPath, String title, BuildContext context) {
   return Container(
     margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
     width: MediaQuery.of(context).size.width,
     height: 180,
     decoration: BoxDecoration(
       color: Colors.black,
-      borderRadius: BorderRadius.circular(15),
+      borderRadius: BorderRadius.circular(5),
       boxShadow: [
         BoxShadow(
           color: Colors.black.withOpacity(0.3),
@@ -114,8 +118,9 @@ Widget card2(String thumbnailUrl, String title, BuildContext context) {
           Colors.white.withOpacity(0.35),
           BlendMode.multiply,
         ),
-        image: NetworkImage(thumbnailUrl),
-        fit: BoxFit.cover,
+        image: AssetImage(assetPath),
+        fit: BoxFit.fill,
+        //fit: BoxFit.cover,
       ),
     ),
     child: Stack(
@@ -137,17 +142,17 @@ Widget card2(String thumbnailUrl, String title, BuildContext context) {
           ),
         ),
         // Filtro que tiene arriba que es el cuadro del texto
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Container(
-            padding: const EdgeInsets.all(5),
-            margin: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(15),
-            ),
-          ),
-        ),
+        // Align(
+        //   alignment: Alignment.bottomLeft,
+        //   child: Container(
+        //     padding: const EdgeInsets.all(5),
+        //     margin: const EdgeInsets.all(10),
+        //     decoration: BoxDecoration(
+        //       color: Colors.black.withOpacity(0.0),
+        //       borderRadius: BorderRadius.circular(15),
+        //     ),
+        //   ),
+        // ),
       ],
     ),
   );

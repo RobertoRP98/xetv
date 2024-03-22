@@ -49,5 +49,10 @@
 	<dict>
 	<key>NSAllowsArbitraryLoads</key>
 	</dict>	
+	<key> UIBackgroundModes</key>
+	<array>
+	<string>audio</string>
+	</array>
+	</dict>	
 </dict>
 </plist>

@@ -13,7 +13,7 @@ class _gradientState extends State<gradient> {
       width: double.infinity,
       decoration: const BoxDecoration( 
         gradient: LinearGradient(
-          colors: [Colors.white, Colors.white],
+          colors: [Colors.yellow, Colors.white],
           begin: Alignment.bottomLeft,
           end: Alignment.topRight, 
         ),

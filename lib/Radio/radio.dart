@@ -5,6 +5,15 @@ import 'package:xetv/Radio/gradient.dart';
 import 'package:xetv/Radio/controls.dart';
 import 'package:xetv/Radio/mediametadata.dart';
 
+Future<void> main() async {
+  await JustAudioBackground.init(
+    androidNotificationChannelId: 'com.xetv.flutter_justaudio.notification.audio',
+    androidNotificationChannelName: 'Audio playback',
+    androidNotificationOngoing: true,
+  );
+  runApp(const radio());
+}
+
 class radio extends StatefulWidget {
   const radio({Key? key}) : super(key: key);
 
@@ -40,11 +49,12 @@ class _radioState extends State<radio> {
     await _audioPlayer.setAudioSource(_playlist);
   }
 
-  @override
-  void dispose() {
-    _audioPlayer.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _audioPlayer.dispose();
+  //   super.dispose();
+  // }
+
 
   @override
   Widget build(BuildContext context) {
